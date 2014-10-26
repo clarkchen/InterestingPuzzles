@@ -1,0 +1,7 @@
+/bin/
+*.class
+.classpath
+.project
+bin/iotest/test.txt
+test.txt
+bin
