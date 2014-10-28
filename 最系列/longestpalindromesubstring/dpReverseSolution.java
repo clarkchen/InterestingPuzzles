@@ -35,7 +35,7 @@ public class dpReverseSolution {
 				
 				if(count[i][j]>max)
 				{
-					if(i==s2.length()-j-1)
+					if(i-count[i][j]+1==s2.length()-j-1)
 					{
 						max = count[i][j];
 						maxi = i;
@@ -44,8 +44,9 @@ public class dpReverseSolution {
 				}
 			}
 		}
-		 
-		System.out.println(s1.substring(maxi,maxi+max));
+		System.out.println(max+" "+maxi);
+
+		System.out.println(s1.substring(maxi-max+1,maxi+1));
 	}
 	public void getLPS(String s1)
 	{
@@ -61,12 +62,13 @@ public class dpReverseSolution {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		suffixSolution  ss = new suffixSolution();
+		dpReverseSolution  ss = new dpReverseSolution();
 		String a= "abaab";
 		a= "abdcabacdef";
 //		a= "caba";
 //		a="abacdfgdcaba";
 //		a="abcefgcba";
+		a="abceababfgcba";
 		ss.getLPS(a);
 		
 	}
