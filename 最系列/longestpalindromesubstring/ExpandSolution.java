@@ -14,34 +14,25 @@ public class ExpandSolution {
 	{
 		
 		 
-		int maxCenter=0, maxLen=Integer.MIN_VALUE;
-		
+		int max=0, maxLen=Integer.MIN_VALUE;
+		 
 		int f,b,l;
 		for(int i=0;i<S.length();i++)
 		{
 			//odd
-			b = i-1;
-			f = i+1;
+			b = i-1;f = i+1;
 			while (b>=0 && f<S.length() && S.charAt(b) == S.charAt(f)){b--;f++;};
-			l = (f-b)/2-1;
-			if(maxLen < l){
-				maxLen = l;
-				maxCenter = i;
-				 
-			}
+			l = f-b-1;
+			if(maxLen < l){maxLen = l;max = b+1;}
 			
 			//even
 			b = i;f = i+1;
 			while (b>=0 && f<S.length() && S.charAt(b) == S.charAt(f)){b--;f++;};
-			l = (f-b)/2;
-			if(maxLen < l){
-				maxLen = l;
-				maxCenter = i;
-			}	
+			l = f-b-1;
+			if(maxLen < l){maxLen = l;max = b+1;}
+
  		}
-		
-		System.out.println(S.substring(maxCenter-maxLen,maxCenter+maxLen+1));
-	 	
+		System.out.println(S.substring(max,max+maxLen));
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -53,6 +44,7 @@ public class ExpandSolution {
 //				a="abacdfgdcaba";
 //				a="abcefgcba";
 //				a="abceababfgcba";
+				a="abba";
 				ss.getLPS(a);
 	}
 
